@@ -1,0 +1,23 @@
+{ "columns":16,
+ "image":"detail_tile.png",
+ "imageheight":512,
+ "imagewidth":512,
+ "margin":0,
+ "name":"test",
+ "spacing":0,
+ "tilecount":256,
+ "tileheight":32,
+ "tiles":
+    {
+     "1":
+        {
+         "type":"test"
+        },
+     "65":
+        {
+         "type":"test"
+        }
+    },
+ "tilewidth":32,
+ "type":"tileset"
+}
