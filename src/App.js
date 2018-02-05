@@ -4,6 +4,9 @@ import Char from './char'
 import './bootstrap/css/bootstrap.min.css'
 
 
+var lastTimestamp = 0,
+    maxFPS = 60,
+    timestep = 1000 / maxFPS; // ms for each frame
 
 
 
@@ -37,12 +40,17 @@ class Game {
 }
 
   mainLoop = (timestamp) => {
+
+    window.requestAnimationFrame(this.mainLoop);
+    if (timestamp - lastTimestamp < timestep) return;
+    lastTimestamp = timestamp;
+
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);       
     this.lerp(this.charPos, this.targetPos);
     this.ctx.drawImage(this.m.canvas, this.charPos.x, this.charPos.y);    
     
     // this.ctx.putImageData(this.currentMap,this.charPos.x, this.charPos.y); 
-    window.requestAnimationFrame(this.mainLoop);
+    
   }  
 
   load = async () => {
